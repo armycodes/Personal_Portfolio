@@ -1,13 +1,14 @@
-/* Default: Sunset theme */
+/* Default: Citrine & Ube theme */
 :root {
-  --bg-1: #1b0b10;
-  --bg-2: #2b1620;
-  --bg-3: #3b1f2b;
-  --fg: #e7ebf6;
-  --muted: #aab3c5;
-  --accent: #ff9eb3;
-  --card: rgba(255, 255, 255, 0.06);
-  --card-stroke: rgba(255, 255, 255, 0.12);
+  --bg-1: #2d2520;
+  --bg-2: #3a3128;
+  --bg-3: #4a3d32;
+  --fg: #DED3B4;
+  --muted: #9a8970;
+  --accent: #E7C208;
+  --secondary: #8A7EC0;
+  --card: rgba(222, 211, 180, 0.06);
+  --card-stroke: rgba(222, 211, 180, 0.12);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   --radius: 14px;
   --container: min(1100px, 95vw);
@@ -16,7 +17,7 @@
   --space-m: 22px;
   --space-l: 36px;
   --space-xl: 64px;
-  
+
   /* Responsive spacing */
   --space-responsive-xs: clamp(4px, 1vw, 8px);
   --space-responsive-s: clamp(8px, 2vw, 14px);
@@ -27,12 +28,13 @@
 
 /* Alternate: Deep Dark theme */
 [data-theme="dark"] {
-  --bg-1: #070a12;
-  --bg-2: #0b1422;
-  --bg-3: #0e1b2d;
-  --fg: #e6ecf5;
-  --muted: #9aa6ba;
-  --accent: #8ad8ff;
+  --bg-1: #1a1510;
+  --bg-2: #242018;
+  --bg-3: #2e2720;
+  --fg: #DED3B4;
+  --muted: #8a7d68;
+  --accent: #8A7EC0;
+  --secondary: #E7C208;
 }
 
 /* Global */
@@ -417,7 +419,7 @@ body {
 }
 
 /* Express icon is monochrome by default; lighten for dark bg */
-.devicon-express-original { color: #e7ebf6; opacity: 0.9; }
+.devicon-express-original { color: #DED3B4; opacity: 0.9; }
 
 .actions { 
   display: flex; 
@@ -458,7 +460,7 @@ body {
   }
 }
 
-.btn.primary { background: linear-gradient(135deg, var(--accent), rgba(255,255,255,0.0)); color: #03121c; border-color: rgba(255,255,255,0.0); font-weight: 600; }
+.btn.primary { background: linear-gradient(135deg, var(--accent), rgba(231,194,8,0.8)); color: #2d2520; border-color: rgba(231,194,8,0.2); font-weight: 600; }
 .btn.subtle { background: transparent; border-color: rgba(255,255,255,0.12); }
 
 .btn:hover {
@@ -645,7 +647,7 @@ body {
 .portrait-glow {
   position: absolute;
   inset: -20%;
-  background: radial-gradient(600px 400px at 80% 10%, var(--accent), transparent 55%);
+  background: radial-gradient(600px 400px at 80% 10%, var(--secondary), transparent 55%);
   opacity: 0.35;
   filter: blur(30px);
   transform: translateZ(10px);
@@ -693,7 +695,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--accent), rgba(255,255,255,0.1));
+  background: linear-gradient(180deg, var(--secondary), rgba(138,126,192,0.2));
   border-radius: 2px;
 }
 
@@ -741,7 +743,7 @@ body {
   background: var(--accent);
   border: 3px solid var(--bg-1);
   border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(255, 158, 179, 0.3);
+  box-shadow: 0 0 0 3px rgba(231, 194, 8, 0.3);
   z-index: 2;
 }
 
@@ -912,15 +914,15 @@ body {
 }
 
 .project-link.demo {
-  background: linear-gradient(135deg, var(--accent), rgba(255,158,179,0.8));
-  color: #03121c;
+  background: linear-gradient(135deg, var(--accent), rgba(231,194,8,0.8));
+  color: #2d2520;
   border-color: transparent;
 }
 
 .project-link.demo:hover {
-  background: linear-gradient(135deg, rgba(255,158,179,1), var(--accent));
+  background: linear-gradient(135deg, rgba(231,194,8,1), var(--accent));
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255,158,179,0.3);
+  box-shadow: 0 4px 12px rgba(231,194,8,0.3);
 }
 
 @media (hover: none) {
