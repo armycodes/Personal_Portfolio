@@ -106,7 +106,7 @@ const DSAStats = () => {
              <li className="dsa-content"><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Arrays, Hashing, Recursion</li>
              <li className="dsa-content"><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Stacks, Queues, Trees</li>
              <li className="dsa-content"><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Time-Space Complexity, Tries, Graphs, DP</li>
-             <li className="dsa-content" style={{ marginTop: '10px', color: '#666' }}>{'>'} Actively Solving Projects...</li>
+             <li className="dsa-content" style={{ marginTop: '10px', color: '#666' }}>{'>'} Actively Solving Problems...</li>
            </ul>
         </div>
 
