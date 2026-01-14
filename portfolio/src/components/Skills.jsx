@@ -9,89 +9,155 @@ const Skills = () => {
   const container = useRef();
 
   useGSAP(() => {
-    const bars = gsap.utils.toArray(".bar-fill");
-    bars.forEach((bar) => {
-      gsap.fromTo(bar, 
-        { width: "0%" },
-        {
-          width: bar.dataset.width,
-          duration: 1.5,
-          ease: "power2.out",
-          scrollTrigger: { trigger: bar, start: "top 90%" }
-        }
-      );
-    });
+    // Window Pop-up Animation
+    gsap.fromTo(container.current, 
+      { scale: 0.9, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)", scrollTrigger: { trigger: container.current, start: "top 80%" } }
+    );
   }, { scope: container });
 
   return (
-    <section id="skills" className="reveal-section" ref={container} style={{ marginTop: '80px' }}>
-      <p className="prompt"><span className="user">user@siri:~$</span> cat technical_skills.json</p>
+    <section id="skills" style={{ marginTop: '100px', marginBottom: '80px' }}>
       
-      <div className="skill-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
+      {/* THE CMD WINDOW CONTAINER */}
+      <div ref={container} style={{
+        border: '2px solid #ffffff', /* Thick White Border */
+        background: '#000000',
+        maxWidth: '100%',
+        margin: '0 auto',
+        boxShadow: '15px 15px 0px #222' /* Retro 3D Shadow */
+      }}>
         
-        <SkillCategory title="Programming Languages">
-          <SkillBar name="Java (Expert)" width="95%" />
-          <SkillBar name="Python" width="90%" />
-          <SkillBar name="SQL" width="85%" />
-          <SkillBar name="JavaScript / TypeScript" width="80%" />
-        </SkillCategory>
+        {/* 1. WINDOW TITLE BAR (White Background, Black Text) */}
+        <div style={{
+          background: '#ffffff',
+          color: '#000000',
+          padding: '8px 15px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          fontFamily: "'Consolas', monospace",
+          fontWeight: 'bold',
+          borderBottom: '2px solid #ffffff'
+        }}>
+          <span>Command Prompt - skills_inventory.exe</span>
+          
+          {/* Window Controls */}
+          <div style={{ display: 'flex', gap: '2px' }}>
+            <ControlBtn>_</ControlBtn>
+            <ControlBtn>□</ControlBtn>
+            <ControlBtn>X</ControlBtn>
+          </div>
+        </div>
 
-        <SkillCategory title="CS Fundamentals">
-          <SkillTags tags={["Data Structures & Algo", "OOP", "System Design", "DBMS", "OS"]} />
-        </SkillCategory>
+        {/* 2. WINDOW CONTENT AREA (Black Screen) */}
+        <div style={{ padding: '25px', fontFamily: "'Consolas', monospace", fontSize: '0.95rem', lineHeight: '1.6' }}>
+          
+          {/* Header Text */}
+          <p style={{ marginBottom: '20px', color: '#ccc' }}>
+            Microsoft Windows [Version 10.0.19045.3693]<br/>
+            (c) Microsoft Corporation. All rights reserved.
+          </p>
+          
+          <p style={{ marginBottom: '20px' }}>
+            <span style={{ color: '#fff' }}>C:\Users\Siri\Skills{'>'}</span> list --all --grouped
+          </p>
 
-        <SkillCategory title="Backend & Frameworks">
-          <SkillBar name="Spring Boot" width="90%" />
-          <SkillBar name="FastAPI / Flask" width="85%" />
-          <SkillBar name="REST APIs & JWT" width="90%" />
-        </SkillCategory>
+          {/* SKILLS GRID (Text Based) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', borderLeft: '2px dotted #333', paddingLeft: '20px' }}>
+            
+            {/* Column 1 */}
+            <div>
+              <SkillGroup title="PROGRAMMING_LANGUAGES">
+                + Java (Expert) <br/>
+                + Python <br/>
+                + SQL <br/>
+                + JavaScript / TypeScript
+              </SkillGroup>
 
-        <SkillCategory title="Databases">
-          <SkillTags tags={["PostgreSQL", "MySQL", "MongoDB"]} />
-        </SkillCategory>
+              <SkillGroup title="BACKEND_FRAMEWORKS">
+                + Spring Boot <br/>
+                + FastAPI / Flask <br/>
+                + REST APIs & JWT Auth
+              </SkillGroup>
 
-        <SkillCategory title="DevOps & Cloud">
-          <SkillTags tags={["Docker", "Kubernetes", "AWS", "GitHub Actions"]} />
-        </SkillCategory>
+              <SkillGroup title="DATABASES">
+                + PostgreSQL <br/>
+                + MySQL <br/>
+                + MongoDB
+              </SkillGroup>
+            </div>
 
-        <SkillCategory title="Tools & OS">
-          <SkillTags tags={["Git & GitHub", "Linux", "Postman", "VS Code"]} />
-        </SkillCategory>
+            {/* Column 2 */}
+            <div>
+              <SkillGroup title="CS_FUNDAMENTALS">
+                + Data Structures & Algorithms <br/>
+                + Object-Oriented Programming <br/>
+                + System Design <br/>
+                + Operating Systems
+              </SkillGroup>
 
+              <SkillGroup title="DEVOPS_CLOUD">
+                + Docker <br/>
+                + Kubernetes (Concepts) <br/>
+                + AWS <br/>
+                + GitHub Actions
+              </SkillGroup>
+
+              <SkillGroup title="TOOLS_&_DEPLOYMENT">
+                 + Git & GitHub <br/>
+                 + Postman / JUnit <br/>
+                 + Vercel / Cloudflare Pages
+              </SkillGroup>
+            </div>
+
+          </div>
+
+          {/* Bottom Prompt with Blinking Cursor */}
+          <p style={{ marginTop: '30px' }}>
+            <span style={{ color: '#fff' }}>C:\Users\Siri\Skills{'>'}</span> <span className="blink">_</span>
+          </p>
+
+        </div>
       </div>
+
+      {/* Style for blinking cursor */}
+      <style>{`
+        .blink { animation: blinker 1s linear infinite; font-weight: bold; color: #fff; }
+        @keyframes blinker { 50% { opacity: 0; } }
+      `}</style>
     </section>
   );
 };
 
-// Components without any colors
-const SkillCategory = ({ title, children }) => (
-  <div className="terminal-card">
-    <h3 style={{ color: '#fff', marginBottom: '20px', fontSize: '1.1rem', borderBottom: '1px solid #333', paddingBottom: '10px' }}>
-      {title}
-    </h3>
+// Component for Window Buttons (Min, Max, Close)
+const ControlBtn = ({ children }) => (
+  <div style={{
+    width: '25px', height: '25px',
+    border: '1px solid #000',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    fontSize: '0.8rem', fontWeight: 'bold', cursor: 'pointer',
+    background: '#ddd'
+  }}>
     {children}
   </div>
 );
 
-const SkillBar = ({ name, width }) => (
-  <div style={{ marginBottom: '15px' }}>
-    <span style={{ fontSize: '0.9rem', color: '#ccc', display: 'block', marginBottom: '5px' }}>{name}</span>
-    <div style={{ height: '4px', background: '#222', borderRadius: '2px', overflow: 'hidden' }}>
-      <div className="bar-fill" data-width={width} style={{ height: '100%', background: '#ffffff', width: '0%' }}></div>
+// Component for Skill Groups
+const SkillGroup = ({ title, children }) => (
+  <div style={{ marginBottom: '30px' }}>
+    <div style={{ 
+      color: '#fff', 
+      marginBottom: '10px', 
+      fontWeight: 'bold', 
+      textTransform: 'uppercase',
+      letterSpacing: '1px'
+    }}>
+      [{title}]
     </div>
-  </div>
-);
-
-const SkillTags = ({ tags }) => (
-  <div className="tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-    {tags.map(tag => (
-      <span key={tag} style={{ 
-        padding: '6px 12px', border: `1px solid #333`, borderRadius: '4px',
-        color: '#aaa', fontSize: '0.85rem', background: 'transparent' 
-      }}>
-        {tag}
-      </span>
-    ))}
+    <div style={{ color: '#aaa', paddingLeft: '15px', borderLeft: '1px solid #444' }}>
+      {children}
+    </div>
   </div>
 );
 

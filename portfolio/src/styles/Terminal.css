@@ -1,15 +1,17 @@
-/* Google Fonts Import ni TEESEA (Delete the @import line at the top) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* --- GLOBAL RESET TO FIX CUTOFF --- */
+* {
+  box-sizing: border-box; /* Idi chala important, right side cut avvakunda chuskuntundi */
+}
 
 :root {
   /* --- STRICT MONOCHROME THEME --- */
   --bg-color: #000000;
   --card-bg: #000000;
-  --text-main: #cccccc;      /* CMD default text is usually light grey, not pure white */
+  --text-main: #cccccc;
   --text-muted: #888888;
   --border-color: #333333;
-  
-  /* --- THE WINDOWS CMD FONT STACK --- */
-  /* Idi real Command Prompt font style */
   --font-cmd: 'Consolas', 'Lucida Console', 'Courier New', monospace;
 }
 
@@ -17,19 +19,19 @@ body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text-main);
-  /* Apply CMD font to WHOLE website */
-  font-family: var(--font-cmd); 
-  overflow-x: hidden;
+  font-family: var(--font-cmd);
+  overflow-x: hidden; /* Horizontal scroll bar ranivvadu */
   line-height: 1.6;
-  font-size: 16px; /* Standard Terminal Size */
+  font-size: 16px;
+  width: 100%;
 }
 
-/* Scrollbar (Blocky style) */
+/* --- MIGITHA CSS ANTHA SAME AS BEFORE --- */
+/* Scrollbar */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #000; }
 ::-webkit-scrollbar-thumb { background: #888; border: 2px solid #000; }
 
-/* Selection */
 ::selection { background: #ffffff; color: #000000; }
 
 .terminal-container {
@@ -51,13 +53,13 @@ body {
   z-index: 100;
 }
 
-/* Typography - Raw & Blocky */
+/* Typography */
 .glitch {
   font-size: 3rem;
-  font-weight: normal; /* CMD fonts don't usually use bold weights heavily */
+  font-weight: normal;
   color: #fff;
   margin-bottom: 15px;
-  text-transform: uppercase; /* Makes it look more like a system header */
+  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -73,60 +75,51 @@ body {
   margin-bottom: 20px;
 }
 
-/* User & Highlight - Pure White */
 .user { color: #ffffff !important; font-weight: bold; } 
 .highlight { 
   color: #ffffff !important; 
   font-weight: bold;
-  border-bottom: 1px dashed #666; /* Dashed line looks more terminal-like */
+  border-bottom: 1px dashed #666;
   text-decoration: none;
 }
 
-/* Buttons (Blocky & Sharp) */
+/* Buttons */
 .terminal-btn {
   padding: 10px 20px;
-  border: 2px solid #ffffff; /* Thicker border for retro feel */
+  border: 2px solid #ffffff;
   background: #000000;
   color: #ffffff;
   font-family: var(--font-cmd);
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-  margin-right: 15px;
-  transition: all 0s; /* Instant change (No smooth animation for raw feel) */
-  border-radius: 0px; /* SHARP CORNERS (No rounding in CMD) */
+  margin-right: 15px; /* Margin right is okay for inline-block */
+  transition: all 0s;
+  border-radius: 0px;
   text-transform: uppercase;
 }
 
+/* Center Alignment Fix for Buttons specific area if needed, but Hero handles it */
 .terminal-btn:hover {
   background: #ffffff;
   color: #000000;
   box-shadow: none;
-  transform: none; /* No movement, just color swap */
+  transform: none;
 }
 
-.terminal-btn.outline {
-  border-color: #888;
-  color: #888;
-}
-.terminal-btn.outline:hover {
-  border-color: #fff;
-  color: #fff;
-  background: transparent;
-}
+.terminal-btn.outline { border-color: #888; color: #888; }
+.terminal-btn.outline:hover { border-color: #fff; color: #fff; background: transparent; }
 
-/* Cards (Sharp Edges) */
+/* Cards */
 .project-card, .terminal-card {
   background: #000;
   border: 1px solid var(--border-color);
-  border-radius: 0px; /* Sharp corners */
+  border-radius: 0px;
   padding: 25px;
   margin-bottom: 30px;
 }
 
-.project-card:hover {
-  border-color: #ffffff;
-}
+.project-card:hover { border-color: #ffffff; }
 
 .project-card h3 {
   color: #fff;
@@ -137,14 +130,8 @@ body {
 }
 
 /* Links */
-.hover-link {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-.hover-link:hover {
-  color: #fff !important;
-  text-decoration: underline;
-}
+.hover-link { color: var(--text-muted); text-decoration: none; }
+.hover-link:hover { color: #fff !important; text-decoration: underline; }
 
 /* Navbar Dots */
-.controls .dot { background: #333; } /* Default grey */
+.controls .dot { background: #333; }
