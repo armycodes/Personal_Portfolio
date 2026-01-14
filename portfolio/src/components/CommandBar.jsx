@@ -12,22 +12,18 @@ const CommandBar = () => {
 
       // Command Logic
       if (cmd === 'help') {
-        alert("Available commands: about, skills, projects, contact, clear");
+        alert("COMMANDS: \n> about \n> education \n> skills \n> projects \n> contact \n> clear");
       } 
       else if (cmd === 'clear') {
         window.scrollTo(0, 0);
         window.location.reload();
       }
       else {
-        // Try to find section with ID
         const section = document.getElementById(cmd);
         if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
-        } else if (['about', 'skills', 'projects', 'contact'].includes(cmd)) {
-           // Mapping short commands to ids if they differ
-           document.getElementById(cmd).scrollIntoView({ behavior: 'smooth' });
         } else {
-           // Unknown command feedback could go here
+           // Optional: Shake effect or error msg
         }
       }
     }
@@ -39,34 +35,34 @@ const CommandBar = () => {
       bottom: '0',
       left: '0',
       width: '100%',
-      background: 'rgba(13, 17, 23, 0.95)',
-      borderTop: '1px solid #30363d',
+      background: '#000000',
+      borderTop: '2px solid #ffffff', /* Thick white line like CMD */
       padding: '10px 20px',
-      fontFamily: "'Fira Code', monospace",
+      fontFamily: "'Consolas', 'Lucida Console', monospace", /* CMD Font */
       zIndex: 1000,
       display: 'flex',
       alignItems: 'center',
       gap: '10px'
     }}>
-      <span style={{ color: '#2ea043', fontWeight: 'bold' }}>user@siri:~$</span>
+      <span style={{ color: '#ffffff', fontWeight: 'bold' }}>C:\Users\Siri{'>'}</span>
       <input 
         type="text" 
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleCommand}
-        placeholder="type 'help' or section name..."
+        placeholder="type command..."
         autoFocus
         style={{
           background: 'transparent',
           border: 'none',
-          color: '#c9d1d9',
+          color: '#ffffff',
           outline: 'none',
           fontSize: '1rem',
           flex: 1,
           fontFamily: 'inherit'
         }}
       />
-      {lastCommand && <span style={{ fontSize: '0.8rem', color: '#8b949e' }}>Last exec: {lastCommand}</span>}
+      {lastCommand && <span style={{ fontSize: '0.8rem', color: '#888' }}>[Exec: {lastCommand}]</span>}
     </div>
   );
 };

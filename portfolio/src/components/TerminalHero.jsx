@@ -45,6 +45,11 @@ const TerminalHero = () => {
     <i className="fas fa-keyboard"></i> Pro Tip: Type <span style={{ color: '#f778ba' }}>help</span> in the terminal below to navigate.
   </p>
 </div>
+<div style={{ marginTop: '40px', fontSize: '0.9rem', color: '#666' }}>
+  <p>
+    <i className="fas fa-keyboard"></i> Pro Tip: Type <span style={{ color: '#fff', fontWeight: 'bold' }}>help</span> in the command bar below.
+  </p>
+</div>
     </div>
   );
 };

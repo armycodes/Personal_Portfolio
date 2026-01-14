@@ -4,7 +4,7 @@ import TerminalHero from './components/TerminalHero';
 import Skills from './components/Skills';
 import ProjectCard from './components/ProjectCard';
 import Contact from './components/Contact';
-// Ensure you are using the latest B&W Terminal.css provided previously
+import CommandBar from './components/CommandBar'; // IMPORT ADDED HERE
 import './styles/Terminal.css'; 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   
   useEffect(() => {
-    // Reveal Animation for Sections
     const sections = document.querySelectorAll(".reveal-section");
     sections.forEach(section => {
       gsap.fromTo(section, 
@@ -31,13 +30,12 @@ function App() {
     <div className="app-container">
       <Navbar />
       
-      <main className="terminal-container">
+      <main className="terminal-container" style={{ paddingBottom: '100px' }}> {/* Padding added so command bar doesn't hide footer */}
         <TerminalHero />
 
         {/* 1. OBJECTIVE SECTION */}
         <section id="objective" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> cat objective.txt</p>
-          {/* Changed border from pink (#f778ba) to White (#fff) */}
           <div className="terminal-card" style={{ borderLeft: '4px solid #ffffff' }}>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8' }}>
               Backend-focused Software Engineer with strong fundamentals in <span className="highlight">Data Structures, Algorithms, OOD, and Databases</span>. 
@@ -53,7 +51,6 @@ function App() {
              <h3 style={{ color: '#fff' }}>B.Tech in Computer Science and Engineering</h3>
              <p style={{ color: '#888', margin: '5px 0' }}>Malla Reddy College of Engineering | 2022 - 2026</p>
              <p style={{ marginTop: '10px', fontSize: '1.1rem' }}>
-                {/* Changed green background to White background with Black text */}
                 Performance: <span style={{ color: '#000000', background: '#ffffff', fontWeight: 'bold', padding: '2px 8px', borderRadius: '4px' }}>CGPA: 9.00 / 10.0</span>
              </p>
           </div>
@@ -64,20 +61,15 @@ function App() {
           <p className="prompt"><span className="user">user@siri:~$</span> ./show_dsa_stats.sh</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
-            {/* Concepts */}
             <div className="terminal-card">
-               {/* Changed color to White */}
                <h4 style={{ color: '#ffffff', marginBottom: '15px', fontSize: '1.1rem' }}>// Core Concepts</h4>
                <ul style={{ listStyle: 'none', padding: 0, color: '#aaa', lineHeight: '1.8' }}>
-                 {/* Used FontAwesome icons instead of emojis to control color to White */}
                  <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Arrays, Hashing, Recursion</li>
                  <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Stacks, Queues, Trees</li>
                  <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Time-Space Complexity</li>
                </ul>
             </div>
-            {/* Platforms */}
             <div className="terminal-card">
-               {/* Changed color to White */}
                <h4 style={{ color: '#ffffff', marginBottom: '15px', fontSize: '1.1rem' }}>// Platforms</h4>
                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                  <a href="https://leetcode.com/u/Vemula_Siri_Mahalaxmi/" target="_blank" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -91,10 +83,9 @@ function App() {
           </div>
         </section>
 
-        {/* 4. SKILLS SECTION (Already B&W from previous step) */}
         <Skills />
 
-        {/* 5. PROJECTS SECTION (Already B&W from previous step) */}
+        {/* 5. PROJECTS SECTION */}
         <section id="projects" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> ps -aux | grep "featured"</p>
           
@@ -120,10 +111,13 @@ function App() {
           />
         </section>
 
-        {/* 6. CONTACT SECTION (Already B&W from previous step) */}
         <Contact />
 
       </main>
+
+      {/* COMMAND BAR ADDED HERE */}
+      <CommandBar />
+
     </div>
   );
 }
