@@ -1,0 +1,73 @@
+/* --- FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code:wght@400&display=swap');
+
+/* --- GENERAL HERO STYLES --- */
+.hero-content {
+    font-family: 'Inter', sans-serif; /* Clean Modern Font */
+    width: 100%;
+}
+
+/* --- TITLE (Clean, No Glitch) --- */
+.name-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.role {
+    font-size: 1.5rem;
+    color: #a1a1aa;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #333; /* Subtle underline instead of neon */
+}
+
+/* --- BUTTONS: CLEAN STYLE --- */
+.simple-btn {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #000;
+    background: #fff; /* Solid White */
+    padding: 12px 30px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border: 1px solid #fff;
+}
+
+.simple-btn:hover {
+    background: #e6e6e6;
+    transform: translateY(-2px);
+}
+
+.simple-btn.outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #555;
+}
+.simple-btn.outline:hover {
+    border-color: #fff;
+    background: transparent;
+}
+
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 768px) {
+    .name-title {
+        font-size: 2.5rem;
+    }
+    .role {
+        font-size: 1.2rem;
+    }
+    .simple-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

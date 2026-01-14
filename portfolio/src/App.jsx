@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import TerminalHero from './components/TerminalHero';
 import Skills from './components/Skills';
+import DSAStats from './components/DSAStats';
 import ProjectCard from './components/ProjectCard';
 import Contact from './components/Contact';
 import CommandBar from './components/CommandBar';
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   
   useEffect(() => {
+    // Reveal Animation for Sections (except DSA which has its own)
     const sections = document.querySelectorAll(".reveal-section");
     sections.forEach(section => {
       gsap.fromTo(section, 
@@ -33,7 +35,7 @@ function App() {
       <main className="terminal-container" style={{ paddingBottom: '100px' }}>
         <TerminalHero />
 
-        {/* OBJECTIVE SECTION */}
+        {/* 1. OBJECTIVE SECTION */}
         <section id="objective" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> cat objective.txt</p>
           <div className="terminal-card" style={{ borderLeft: '4px solid #ffffff' }}>
@@ -44,7 +46,7 @@ function App() {
           </div>
         </section>
 
-        {/* EDUCATION SECTION */}
+        {/* 2. EDUCATION SECTION */}
         <section id="education" className="reveal-section" style={{ marginTop: '60px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> head -n 5 education.log</p>
           <div style={{ paddingLeft: '20px', borderLeft: '1px solid #333' }}>
@@ -56,41 +58,17 @@ function App() {
           </div>
         </section>
 
-        {/* DSA SECTION */}
-        <section id="dsa" className="reveal-section" style={{ marginTop: '80px' }}>
-          <p className="prompt"><span className="user">user@siri:~$</span> ./show_dsa_stats.sh</p>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
-            <div className="terminal-card">
-               <h4 style={{ color: '#ffffff', marginBottom: '15px', fontSize: '1.1rem' }}>// Core Concepts</h4>
-               <ul style={{ listStyle: 'none', padding: 0, color: '#aaa', lineHeight: '1.8' }}>
-                 <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Arrays, Hashing, Recursion</li>
-                 <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Stacks, Queues, Trees</li>
-                 <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Time-Space Complexity</li>
-               </ul>
-            </div>
-            <div className="terminal-card">
-               <h4 style={{ color: '#ffffff', marginBottom: '15px', fontSize: '1.1rem' }}>// Platforms</h4>
-               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                 <a href="https://leetcode.com/u/Vemula_Siri_Mahalaxmi/" target="_blank" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                   <i className="fas fa-code" style={{ color: '#fff' }}></i> LeetCode (Active)
-                 </a>
-                 <a href="#" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                   <i className="fas fa-terminal" style={{ color: '#fff' }}></i> CodeForces
-                 </a>
-               </div>
-            </div>
-          </div>
-        </section>
+        {/* 3. DSA SECTION (Live Stats) */}
+        <DSAStats />
 
-        {/* SKILLS SECTION */}
+        {/* 4. SKILLS SECTION */}
         <Skills />
 
-        {/* PROJECTS SECTION */}
+        {/* 5. PROJECTS SECTION */}
         <section id="projects" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> ps -aux | grep "featured"</p>
           
-          {/* --- NEW ECHOA PROJECT ADDED HERE --- */}
+          {/* Echoa Project */}
           <ProjectCard 
             pid="4096"
             name="Echoa"
@@ -102,6 +80,7 @@ function App() {
             linkCode="https://github.com/armycodes/Echoa_V1.git"
           />
 
+          {/* DataPulse Project */}
           <ProjectCard 
             pid="1024"
             name="DataPulse_System"
@@ -111,9 +90,9 @@ function App() {
             tech="Java, Python, FastAPI, Redis, Celery, PostgreSQL"
             linkDemo="https://data-pulse-eight.vercel.app/"
             linkCode="https://github.com/armycodes/DataPulse.git"
-            
           />
 
+          {/* Justice Genie Project */}
           <ProjectCard 
             pid="2048"
             name="Justice_Genie_AI"
@@ -126,10 +105,12 @@ function App() {
           />
         </section>
 
+        {/* 6. CONTACT SECTION */}
         <Contact />
 
       </main>
 
+      {/* FIXED COMMAND BAR */}
       <CommandBar />
 
     </div>
