@@ -40,6 +40,11 @@ const TerminalHero = () => {
           <a href="/assets/Siri_Mahalaxmi_Resume.pdf" download className="terminal-btn" style={{ borderColor: '#2ea043', color: '#2ea043' }}>[ Download_Resume ]</a>
         </div>
       </div>
+      <div style={{ marginTop: '40px', fontSize: '0.9rem', color: '#8b949e', opacity: 0.8 }}>
+  <p>
+    <i className="fas fa-keyboard"></i> Pro Tip: Type <span style={{ color: '#f778ba' }}>help</span> in the terminal below to navigate.
+  </p>
+</div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import './styles/Terminal.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import CommandBar from './components/CommandBar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -120,6 +121,7 @@ function App() {
         <Contact />
 
       </main>
+      <CommandBar />
     </div>
   );
 }
