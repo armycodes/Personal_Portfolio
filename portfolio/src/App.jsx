@@ -4,10 +4,10 @@ import TerminalHero from './components/TerminalHero';
 import Skills from './components/Skills';
 import ProjectCard from './components/ProjectCard';
 import Contact from './components/Contact';
-import './styles/Terminal.css';
+// Ensure you are using the latest B&W Terminal.css provided previously
+import './styles/Terminal.css'; 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import CommandBar from './components/CommandBar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,17 +29,16 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Navbar (Top Bar) */}
       <Navbar />
       
       <main className="terminal-container">
-        {/* Hero Section (Typing Effect) */}
         <TerminalHero />
 
         {/* 1. OBJECTIVE SECTION */}
         <section id="objective" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> cat objective.txt</p>
-          <div className="terminal-card" style={{ borderLeft: '4px solid #f778ba' }}>
+          {/* Changed border from pink (#f778ba) to White (#fff) */}
+          <div className="terminal-card" style={{ borderLeft: '4px solid #ffffff' }}>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8' }}>
               Backend-focused Software Engineer with strong fundamentals in <span className="highlight">Data Structures, Algorithms, OOD, and Databases</span>. 
               Experienced in building scalable backend systems, designing RESTful APIs, and delivering production-grade software.
@@ -50,11 +49,12 @@ function App() {
         {/* 2. EDUCATION SECTION */}
         <section id="education" className="reveal-section" style={{ marginTop: '60px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> head -n 5 education.log</p>
-          <div style={{ paddingLeft: '20px', borderLeft: '1px solid #30363d' }}>
+          <div style={{ paddingLeft: '20px', borderLeft: '1px solid #333' }}>
              <h3 style={{ color: '#fff' }}>B.Tech in Computer Science and Engineering</h3>
-             <p style={{ color: '#8b949e', margin: '5px 0' }}>Malla Reddy College of Engineering | 2022 - 2026</p>
+             <p style={{ color: '#888', margin: '5px 0' }}>Malla Reddy College of Engineering | 2022 - 2026</p>
              <p style={{ marginTop: '10px', fontSize: '1.1rem' }}>
-                Performance: <span style={{ color: '#0d1117', background: '#2ea043', fontWeight: 'bold', padding: '2px 8px', borderRadius: '4px' }}>CGPA: 9.00 / 10.0</span>
+                {/* Changed green background to White background with Black text */}
+                Performance: <span style={{ color: '#000000', background: '#ffffff', fontWeight: 'bold', padding: '2px 8px', borderRadius: '4px' }}>CGPA: 9.00 / 10.0</span>
              </p>
           </div>
         </section>
@@ -66,32 +66,35 @@ function App() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
             {/* Concepts */}
             <div className="terminal-card">
-               <h4 style={{ color: '#58a6ff', marginBottom: '10px' }}>// Core Concepts</h4>
-               <ul style={{ listStyle: 'none', padding: 0, color: '#8b949e', lineHeight: '1.8' }}>
-                 <li>✅ Arrays, Hashing, Recursion</li>
-                 <li>✅ Stacks, Queues, Trees</li>
-                 <li>✅ Time-Space Complexity</li>
+               {/* Changed color to White */}
+               <h4 style={{ color: '#ffffff', marginBottom: '15px', fontSize: '1.1rem' }}>// Core Concepts</h4>
+               <ul style={{ listStyle: 'none', padding: 0, color: '#aaa', lineHeight: '1.8' }}>
+                 {/* Used FontAwesome icons instead of emojis to control color to White */}
+                 <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Arrays, Hashing, Recursion</li>
+                 <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Stacks, Queues, Trees</li>
+                 <li><i className="fas fa-check" style={{ color: '#fff', marginRight: '8px' }}></i> Time-Space Complexity</li>
                </ul>
             </div>
             {/* Platforms */}
             <div className="terminal-card">
-               <h4 style={{ color: '#2ea043', marginBottom: '10px' }}>// Platforms</h4>
+               {/* Changed color to White */}
+               <h4 style={{ color: '#ffffff', marginBottom: '15px', fontSize: '1.1rem' }}>// Platforms</h4>
                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                 <a href="https://leetcode.com/u/Vemula_Siri_Mahalaxmi/" target="_blank" className="hover-link" style={{ textDecoration: 'none', color: '#c9d1d9' }}>
-                   <i className="fas fa-code"></i> LeetCode (Active)
+                 <a href="https://leetcode.com/u/Vemula_Siri_Mahalaxmi/" target="_blank" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                   <i className="fas fa-code" style={{ color: '#fff' }}></i> LeetCode (Active)
                  </a>
-                 <a href="#" className="hover-link" style={{ textDecoration: 'none', color: '#c9d1d9' }}>
-                   <i className="fas fa-terminal"></i> CodeForces
+                 <a href="#" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                   <i className="fas fa-terminal" style={{ color: '#fff' }}></i> CodeForces
                  </a>
                </div>
             </div>
           </div>
         </section>
 
-        {/* 4. SKILLS SECTION */}
+        {/* 4. SKILLS SECTION (Already B&W from previous step) */}
         <Skills />
 
-        {/* 5. PROJECTS SECTION */}
+        {/* 5. PROJECTS SECTION (Already B&W from previous step) */}
         <section id="projects" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> ps -aux | grep "featured"</p>
           
@@ -117,11 +120,10 @@ function App() {
           />
         </section>
 
-        {/* 6. CONTACT SECTION */}
+        {/* 6. CONTACT SECTION (Already B&W from previous step) */}
         <Contact />
 
       </main>
-      <CommandBar />
     </div>
   );
 }

@@ -1,114 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
+/* Google Fonts Import ni TEESEA (Delete the @import line at the top) */
 
 :root {
-  /* The Original Hacker Theme */
-  --bg-color: #0d1117;     /* Dark GitHub Dim */
-  --term-bg: #161b22;      /* Card Background */
-  --text-main: #c9d1d9;    /* Soft Code White */
+  /* --- STRICT MONOCHROME THEME --- */
+  --bg-color: #000000;
+  --card-bg: #000000;
+  --text-main: #cccccc;      /* CMD default text is usually light grey, not pure white */
+  --text-muted: #888888;
+  --border-color: #333333;
   
-  /* Neon Accents */
-  --neon-green: #2ea043;   /* Terminal Prompt Color */
-  --neon-blue: #58a6ff;    /* Highlights */
-  --neon-pink: #f778ba;    /* Special Keywords */
-  
-  --font-mono: 'Fira Code', monospace;
+  /* --- THE WINDOWS CMD FONT STACK --- */
+  /* Idi real Command Prompt font style */
+  --font-cmd: 'Consolas', 'Lucida Console', 'Courier New', monospace;
 }
 
 body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text-main);
-  font-family: var(--font-mono);
+  /* Apply CMD font to WHOLE website */
+  font-family: var(--font-cmd); 
   overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 16px; /* Standard Terminal Size */
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-color); }
-::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 4px; }
+/* Scrollbar (Blocky style) */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #888; border: 2px solid #000; }
 
 /* Selection */
-::selection {
-  background: var(--neon-green);
-  color: #000;
-}
+::selection { background: #ffffff; color: #000000; }
 
-/* Utilities */
 .terminal-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 100px 20px 50px;
+  padding: 120px 20px 50px;
 }
 
 /* Navbar */
 .terminal-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(13, 17, 23, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 12px 20px;
+  top: 0; left: 0; width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
 }
 
-.controls { display: flex; gap: 8px; }
-.dot { width: 12px; height: 12px; border-radius: 50%; }
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
+/* Typography - Raw & Blocky */
+.glitch {
+  font-size: 3rem;
+  font-weight: normal; /* CMD fonts don't usually use bold weights heavily */
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase; /* Makes it look more like a system header */
+  letter-spacing: 2px;
+}
 
-/* Text Styles */
-.prompt { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-main); }
-.user { color: var(--neon-green); font-weight: bold; }
-.highlight { color: var(--neon-blue); }
-
-.glitch { font-size: 3rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
-.role { color: var(--neon-pink); font-size: 1.5rem; margin-bottom: 20px; }
-
-/* Cards (Hacker Style) */
-.project-card, .terminal-card {
-  background: var(--term-bg);
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  padding: 20px;
+.role {
+  font-size: 1.2rem;
+  color: var(--text-muted);
   margin-bottom: 30px;
-  transition: transform 0.3s, border-color 0.3s;
 }
 
-.project-card:hover { 
-  transform: translateX(10px); 
-  border-color: var(--neon-green); /* Green Glow on Hover */
+.prompt {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-/* Buttons */
-/* Buttons styling */
+/* User & Highlight - Pure White */
+.user { color: #ffffff !important; font-weight: bold; } 
+.highlight { 
+  color: #ffffff !important; 
+  font-weight: bold;
+  border-bottom: 1px dashed #666; /* Dashed line looks more terminal-like */
+  text-decoration: none;
+}
+
+/* Buttons (Blocky & Sharp) */
 .terminal-btn {
-  padding: 12px 24px;
-  border: 1px solid var(--neon-blue);
-  color: var(--neon-blue);
-  background: rgba(88, 166, 255, 0.1);
+  padding: 10px 20px;
+  border: 2px solid #ffffff; /* Thicker border for retro feel */
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-cmd);
+  font-weight: bold;
   text-decoration: none;
   display: inline-block;
   margin-right: 15px;
-  transition: 0.3s;
-  cursor: pointer;
-  font-family: var(--font-mono);
+  transition: all 0s; /* Instant change (No smooth animation for raw feel) */
+  border-radius: 0px; /* SHARP CORNERS (No rounding in CMD) */
+  text-transform: uppercase;
 }
 
-/* Updated Hover Effect - No Glow */
-.terminal-btn:hover { 
-  background: var(--neon-blue); 
-  color: #0d1117; 
-  box-shadow: none; /* Glow effect removed */
+.terminal-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: none;
+  transform: none; /* No movement, just color swap */
 }
 
-/* Hover Links */
+.terminal-btn.outline {
+  border-color: #888;
+  color: #888;
+}
+.terminal-btn.outline:hover {
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+}
+
+/* Cards (Sharp Edges) */
+.project-card, .terminal-card {
+  background: #000;
+  border: 1px solid var(--border-color);
+  border-radius: 0px; /* Sharp corners */
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.project-card:hover {
+  border-color: #ffffff;
+}
+
+.project-card h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.hover-link {
+  color: var(--text-muted);
+  text-decoration: none;
+}
 .hover-link:hover {
-  color: var(--neon-green) !important;
-  text-shadow: 0 0 8px var(--neon-green);
+  color: #fff !important;
+  text-decoration: underline;
 }
+
+/* Navbar Dots */
+.controls .dot { background: #333; } /* Default grey */

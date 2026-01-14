@@ -10,7 +10,6 @@ const Skills = () => {
 
   useGSAP(() => {
     const bars = gsap.utils.toArray(".bar-fill");
-    
     bars.forEach((bar) => {
       gsap.fromTo(bar, 
         { width: "0%" },
@@ -18,10 +17,7 @@ const Skills = () => {
           width: bar.dataset.width,
           duration: 1.5,
           ease: "power2.out",
-          scrollTrigger: {
-            trigger: bar,
-            start: "top 85%",
-          }
+          scrollTrigger: { trigger: bar, start: "top 90%" }
         }
       );
     });
@@ -29,86 +25,69 @@ const Skills = () => {
 
   return (
     <section id="skills" className="reveal-section" ref={container} style={{ marginTop: '80px' }}>
-      <p className="prompt"><span className="user">user@siri:~$</span> run --skills --verbose --all</p>
+      <p className="prompt"><span className="user">user@siri:~$</span> cat technical_skills.json</p>
       
-      <div className="skill-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+      <div className="skill-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
         
-        {/* 1. Programming Languages */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ Programming Languages ]</h3>
-          <SkillBar name="Java" width="90%" />
-          <SkillBar name="Python" width="85%" />
+        <SkillCategory title="Programming Languages">
+          <SkillBar name="Java (Expert)" width="95%" />
+          <SkillBar name="Python" width="90%" />
+          <SkillBar name="SQL" width="85%" />
           <SkillBar name="JavaScript / TypeScript" width="80%" />
-          <SkillBar name="SQL" width="75%" />
-        </div>
+        </SkillCategory>
 
-        {/* 2. CS Fundamentals */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ CS Fundamentals ]</h3>
-          <SkillTags tags={["Data Structures & Algo", "OOPs", "System Design", "DBMS", "OS (Linux/Windows)"]} />
-        </div>
+        <SkillCategory title="CS Fundamentals">
+          <SkillTags tags={["Data Structures & Algo", "OOP", "System Design", "DBMS", "OS"]} />
+        </SkillCategory>
 
-        {/* 3. Backend & Frameworks */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ Backend & Frameworks ]</h3>
-          <SkillBar name="Spring Boot" width="85%" />
-          <SkillBar name="FastAPI / Flask" width="80%" />
+        <SkillCategory title="Backend & Frameworks">
+          <SkillBar name="Spring Boot" width="90%" />
+          <SkillBar name="FastAPI / Flask" width="85%" />
           <SkillBar name="REST APIs & JWT" width="90%" />
-        </div>
+        </SkillCategory>
 
-        {/* 4. Databases */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ Databases ]</h3>
-          <SkillTags tags={["PostgreSQL", "MySQL", "MongoDB"]} color="#f778ba" />
-        </div>
+        <SkillCategory title="Databases">
+          <SkillTags tags={["PostgreSQL", "MySQL", "MongoDB"]} />
+        </SkillCategory>
 
-        {/* 5. DevOps & Cloud */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ DevOps & Cloud ]</h3>
-          <SkillTags tags={["Docker", "Kubernetes (Concepts)", "AWS", "GitHub Actions"]} color="#58a6ff" />
-        </div>
+        <SkillCategory title="DevOps & Cloud">
+          <SkillTags tags={["Docker", "Kubernetes", "AWS", "GitHub Actions"]} />
+        </SkillCategory>
 
-        {/* 6. Tools & OS */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ Tools & OS ]</h3>
+        <SkillCategory title="Tools & OS">
           <SkillTags tags={["Git & GitHub", "Linux", "Postman", "VS Code"]} />
-        </div>
-
-        {/* 7. Deployment */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ Deployment ]</h3>
-          <SkillTags tags={["Vercel", "Cloudflare Pages"]} color="#2ea043" />
-        </div>
-
-        {/* 8. Testing */}
-        <div className="skill-category">
-          <h3 style={categoryTitleStyle}>[ Testing ]</h3>
-          <SkillBar name="Java Automation (JUnit)" width="70%" />
-        </div>
+        </SkillCategory>
 
       </div>
     </section>
   );
 };
 
-// Styles & Components
-const categoryTitleStyle = { color: '#f778ba', borderBottom: '1px dashed #333', paddingBottom: '10px', marginBottom: '15px' };
+// Components without any colors
+const SkillCategory = ({ title, children }) => (
+  <div className="terminal-card">
+    <h3 style={{ color: '#fff', marginBottom: '20px', fontSize: '1.1rem', borderBottom: '1px solid #333', paddingBottom: '10px' }}>
+      {title}
+    </h3>
+    {children}
+  </div>
+);
 
 const SkillBar = ({ name, width }) => (
   <div style={{ marginBottom: '15px' }}>
-    <span style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', color: '#c9d1d9' }}>{name}</span>
-    <div style={{ height: '6px', background: '#21262d', borderRadius: '3px', overflow: 'hidden' }}>
-      <div className="bar-fill" data-width={width} style={{ height: '100%', background: '#58a6ff', width: '0%' }}></div>
+    <span style={{ fontSize: '0.9rem', color: '#ccc', display: 'block', marginBottom: '5px' }}>{name}</span>
+    <div style={{ height: '4px', background: '#222', borderRadius: '2px', overflow: 'hidden' }}>
+      <div className="bar-fill" data-width={width} style={{ height: '100%', background: '#ffffff', width: '0%' }}></div>
     </div>
   </div>
 );
 
-const SkillTags = ({ tags, color = '#2ea043' }) => (
-  <div className="tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+const SkillTags = ({ tags }) => (
+  <div className="tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
     {tags.map(tag => (
       <span key={tag} style={{ 
-        padding: '5px 10px', border: `1px solid #333`, 
-        color: color, fontSize: '0.85rem', background: 'rgba(255,255,255,0.02)' 
+        padding: '6px 12px', border: `1px solid #333`, borderRadius: '4px',
+        color: '#aaa', fontSize: '0.85rem', background: 'transparent' 
       }}>
         {tag}
       </span>
