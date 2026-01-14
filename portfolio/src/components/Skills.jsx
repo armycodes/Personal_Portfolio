@@ -20,7 +20,7 @@ const Skills = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: bar,
-            start: "top 85%", // Screen loki ragane start avthundi
+            start: "top 85%",
           }
         }
       );
@@ -29,40 +29,61 @@ const Skills = () => {
 
   return (
     <section id="skills" className="reveal-section" ref={container} style={{ marginTop: '80px' }}>
-      <p className="prompt"><span className="user">user@siri:~$</span> run --skills --verbose</p>
+      <p className="prompt"><span className="user">user@siri:~$</span> run --skills --verbose --all</p>
       
-      <div className="skill-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px' }}>
+      <div className="skill-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
         
-        {/* Languages */}
+        {/* 1. Programming Languages */}
         <div className="skill-category">
-          <h3 style={{ color: '#f778ba', borderBottom: '1px dashed #333', paddingBottom: '10px' }}>[ Languages ]</h3>
-          <SkillBar name="Java (Core/Adv)" width="90%" />
+          <h3 style={categoryTitleStyle}>[ Programming Languages ]</h3>
+          <SkillBar name="Java" width="90%" />
           <SkillBar name="Python" width="85%" />
-          <SkillBar name="SQL / NoSQL" width="80%" />
+          <SkillBar name="JavaScript / TypeScript" width="80%" />
+          <SkillBar name="SQL" width="75%" />
         </div>
 
-        {/* Frameworks */}
+        {/* 2. CS Fundamentals */}
         <div className="skill-category">
-          <h3 style={{ color: '#f778ba', borderBottom: '1px dashed #333', paddingBottom: '10px' }}>[ Frameworks ]</h3>
+          <h3 style={categoryTitleStyle}>[ CS Fundamentals ]</h3>
+          <SkillTags tags={["Data Structures & Algo", "OOPs", "System Design", "DBMS", "OS (Linux/Windows)"]} />
+        </div>
+
+        {/* 3. Backend & Frameworks */}
+        <div className="skill-category">
+          <h3 style={categoryTitleStyle}>[ Backend & Frameworks ]</h3>
           <SkillBar name="Spring Boot" width="85%" />
           <SkillBar name="FastAPI / Flask" width="80%" />
-          <SkillBar name="React.js" width="70%" />
+          <SkillBar name="REST APIs & JWT" width="90%" />
         </div>
 
-        {/* Tools */}
+        {/* 4. Databases */}
         <div className="skill-category">
-          <h3 style={{ color: '#f778ba', borderBottom: '1px dashed #333', paddingBottom: '10px' }}>[ Tools & Infra ]</h3>
-          <div className="tags" style={{ marginTop: '15px' }}>
-            {["Docker", "AWS", "Redis", "PostgreSQL", "Git", "Linux", "Postman"].map(tool => (
-              <span key={tool} style={{ 
-                display: 'inline-block', padding: '5px 10px', 
-                border: '1px solid #333', marginRight: '10px', 
-                marginBottom: '10px', color: '#2ea043' 
-              }}>
-                {tool}
-              </span>
-            ))}
-          </div>
+          <h3 style={categoryTitleStyle}>[ Databases ]</h3>
+          <SkillTags tags={["PostgreSQL", "MySQL", "MongoDB"]} color="#f778ba" />
+        </div>
+
+        {/* 5. DevOps & Cloud */}
+        <div className="skill-category">
+          <h3 style={categoryTitleStyle}>[ DevOps & Cloud ]</h3>
+          <SkillTags tags={["Docker", "Kubernetes (Concepts)", "AWS", "GitHub Actions"]} color="#58a6ff" />
+        </div>
+
+        {/* 6. Tools & OS */}
+        <div className="skill-category">
+          <h3 style={categoryTitleStyle}>[ Tools & OS ]</h3>
+          <SkillTags tags={["Git & GitHub", "Linux", "Postman", "VS Code"]} />
+        </div>
+
+        {/* 7. Deployment */}
+        <div className="skill-category">
+          <h3 style={categoryTitleStyle}>[ Deployment ]</h3>
+          <SkillTags tags={["Vercel", "Cloudflare Pages"]} color="#2ea043" />
+        </div>
+
+        {/* 8. Testing */}
+        <div className="skill-category">
+          <h3 style={categoryTitleStyle}>[ Testing ]</h3>
+          <SkillBar name="Java Automation (JUnit)" width="70%" />
         </div>
 
       </div>
@@ -70,12 +91,28 @@ const Skills = () => {
   );
 };
 
+// Styles & Components
+const categoryTitleStyle = { color: '#f778ba', borderBottom: '1px dashed #333', paddingBottom: '10px', marginBottom: '15px' };
+
 const SkillBar = ({ name, width }) => (
-  <div style={{ marginBottom: '15px', marginTop: '15px' }}>
-    <span style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem' }}>{name}</span>
-    <div style={{ height: '8px', background: '#21262d', borderRadius: '4px', overflow: 'hidden' }}>
+  <div style={{ marginBottom: '15px' }}>
+    <span style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', color: '#c9d1d9' }}>{name}</span>
+    <div style={{ height: '6px', background: '#21262d', borderRadius: '3px', overflow: 'hidden' }}>
       <div className="bar-fill" data-width={width} style={{ height: '100%', background: '#58a6ff', width: '0%' }}></div>
     </div>
+  </div>
+);
+
+const SkillTags = ({ tags, color = '#2ea043' }) => (
+  <div className="tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+    {tags.map(tag => (
+      <span key={tag} style={{ 
+        padding: '5px 10px', border: `1px solid #333`, 
+        color: color, fontSize: '0.85rem', background: 'rgba(255,255,255,0.02)' 
+      }}>
+        {tag}
+      </span>
+    ))}
   </div>
 );
 

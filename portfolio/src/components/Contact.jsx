@@ -10,16 +10,16 @@ const Contact = () => {
         <p style={{ color: '#8b949e' }}>{'>'} Packet loss: 0%</p>
         
         <div style={{ marginTop: '20px', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-          <a href="mailto:sirimahalaxmivemula@gmail.com" style={{ color: '#c9d1d9', textDecoration: 'none' }} className="hover-link">
+          <a href="mailto:sirimahalaxmivemula@gmail.com" style={{ color: '#c9d1d9', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }} className="hover-link">
             <i className="fas fa-envelope"></i> Email
           </a>
-          <a href="https://linkedin.com/in/vemula-siri-mahalaxmi-b4b624319/" target="_blank" rel="noreferrer" style={{ color: '#c9d1d9', textDecoration: 'none' }} className="hover-link">
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#c9d1d9', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }} className="hover-link">
             <i className="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="https://github.com/armycodes" target="_blank" rel="noreferrer" style={{ color: '#c9d1d9', textDecoration: 'none' }} className="hover-link">
+          <a href="https://github.com" target="_blank" rel="noreferrer" style={{ color: '#c9d1d9', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }} className="hover-link">
             <i className="fab fa-github"></i> GitHub
           </a>
-          <a href="https://leetcode.com/u/Vemula_Siri_Mahalaxmi/" target="_blank" rel="noreferrer" style={{ color: '#c9d1d9', textDecoration: 'none' }} className="hover-link">
+          <a href="https://leetcode.com" target="_blank" rel="noreferrer" style={{ color: '#c9d1d9', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }} className="hover-link">
             <i className="fas fa-code"></i> LeetCode
           </a>
         </div>
