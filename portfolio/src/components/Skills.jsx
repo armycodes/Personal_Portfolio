@@ -9,7 +9,6 @@ const Skills = () => {
   const container = useRef();
 
   useGSAP(() => {
-    // Window Pop-up Animation
     gsap.fromTo(container.current, 
       { scale: 0.9, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)", scrollTrigger: { trigger: container.current, start: "top 80%" } }
@@ -19,16 +18,15 @@ const Skills = () => {
   return (
     <section id="skills" style={{ marginTop: '100px', marginBottom: '80px' }}>
       
-      {/* THE CMD WINDOW CONTAINER */}
       <div ref={container} style={{
-        border: '2px solid #ffffff', /* Thick White Border */
+        border: '2px solid #ffffff',
         background: '#000000',
         maxWidth: '100%',
         margin: '0 auto',
-        boxShadow: '15px 15px 0px #222' /* Retro 3D Shadow */
+        boxShadow: '15px 15px 0px #222'
       }}>
         
-        {/* 1. WINDOW TITLE BAR (White Background, Black Text) */}
+        {/* Title Bar */}
         <div style={{
           background: '#ffffff',
           color: '#000000',
@@ -41,8 +39,6 @@ const Skills = () => {
           borderBottom: '2px solid #ffffff'
         }}>
           <span>Command Prompt - skills_inventory.exe</span>
-          
-          {/* Window Controls */}
           <div style={{ display: 'flex', gap: '2px' }}>
             <ControlBtn>_</ControlBtn>
             <ControlBtn>□</ControlBtn>
@@ -50,10 +46,9 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* 2. WINDOW CONTENT AREA (Black Screen) */}
+        {/* Content */}
         <div style={{ padding: '25px', fontFamily: "'Consolas', monospace", fontSize: '0.95rem', lineHeight: '1.6' }}>
           
-          {/* Header Text */}
           <p style={{ marginBottom: '20px', color: '#ccc' }}>
             Microsoft Windows [Version 10.0.19045.3693]<br/>
             (c) Microsoft Corporation. All rights reserved.
@@ -63,7 +58,6 @@ const Skills = () => {
             <span style={{ color: '#fff' }}>C:\Users\Siri\Skills{'>'}</span> list --all --grouped
           </p>
 
-          {/* SKILLS GRID (Text Based) */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', borderLeft: '2px dotted #333', paddingLeft: '20px' }}>
             
             {/* Column 1 */}
@@ -78,7 +72,8 @@ const Skills = () => {
               <SkillGroup title="BACKEND_FRAMEWORKS">
                 + Spring Boot <br/>
                 + FastAPI / Flask <br/>
-                + REST APIs & JWT Auth
+                + REST APIs & JWT Auth <br/>
+                + OAuth 2.0 Integration {/* New Skill */}
               </SkillGroup>
 
               <SkillGroup title="DATABASES">
@@ -104,8 +99,9 @@ const Skills = () => {
                 + GitHub Actions
               </SkillGroup>
 
-              <SkillGroup title="TOOLS_&_DEPLOYMENT">
+              <SkillGroup title="TOOLS_&_API_INTEGRATION">
                  + Git & GitHub <br/>
+                 + 3rd Party APIs (Spotify/Pexels) {/* New Skill */} <br/>
                  + Postman / JUnit <br/>
                  + Vercel / Cloudflare Pages
               </SkillGroup>
@@ -113,7 +109,6 @@ const Skills = () => {
 
           </div>
 
-          {/* Bottom Prompt with Blinking Cursor */}
           <p style={{ marginTop: '30px' }}>
             <span style={{ color: '#fff' }}>C:\Users\Siri\Skills{'>'}</span> <span className="blink">_</span>
           </p>
@@ -121,7 +116,6 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Style for blinking cursor */}
       <style>{`
         .blink { animation: blinker 1s linear infinite; font-weight: bold; color: #fff; }
         @keyframes blinker { 50% { opacity: 0; } }
@@ -130,7 +124,6 @@ const Skills = () => {
   );
 };
 
-// Component for Window Buttons (Min, Max, Close)
 const ControlBtn = ({ children }) => (
   <div style={{
     width: '25px', height: '25px',
@@ -143,7 +136,6 @@ const ControlBtn = ({ children }) => (
   </div>
 );
 
-// Component for Skill Groups
 const SkillGroup = ({ title, children }) => (
   <div style={{ marginBottom: '30px' }}>
     <div style={{ 

@@ -4,7 +4,7 @@ import TerminalHero from './components/TerminalHero';
 import Skills from './components/Skills';
 import ProjectCard from './components/ProjectCard';
 import Contact from './components/Contact';
-import CommandBar from './components/CommandBar'; // IMPORT ADDED HERE
+import CommandBar from './components/CommandBar';
 import './styles/Terminal.css'; 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -30,10 +30,10 @@ function App() {
     <div className="app-container">
       <Navbar />
       
-      <main className="terminal-container" style={{ paddingBottom: '100px' }}> {/* Padding added so command bar doesn't hide footer */}
+      <main className="terminal-container" style={{ paddingBottom: '100px' }}>
         <TerminalHero />
 
-        {/* 1. OBJECTIVE SECTION */}
+        {/* OBJECTIVE SECTION */}
         <section id="objective" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> cat objective.txt</p>
           <div className="terminal-card" style={{ borderLeft: '4px solid #ffffff' }}>
@@ -44,7 +44,7 @@ function App() {
           </div>
         </section>
 
-        {/* 2. EDUCATION SECTION */}
+        {/* EDUCATION SECTION */}
         <section id="education" className="reveal-section" style={{ marginTop: '60px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> head -n 5 education.log</p>
           <div style={{ paddingLeft: '20px', borderLeft: '1px solid #333' }}>
@@ -56,7 +56,7 @@ function App() {
           </div>
         </section>
 
-        {/* 3. PROBLEM SOLVING (DSA) */}
+        {/* DSA SECTION */}
         <section id="dsa" className="reveal-section" style={{ marginTop: '80px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> ./show_dsa_stats.sh</p>
           
@@ -83,20 +83,35 @@ function App() {
           </div>
         </section>
 
+        {/* SKILLS SECTION */}
         <Skills />
 
-        {/* 5. PROJECTS SECTION */}
+        {/* PROJECTS SECTION */}
         <section id="projects" className="reveal-section" style={{ marginTop: '100px' }}>
           <p className="prompt"><span className="user">user@siri:~$</span> ps -aux | grep "featured"</p>
           
+          {/* --- NEW ECHOA PROJECT ADDED HERE --- */}
+          <ProjectCard 
+            pid="4096"
+            name="Echoa"
+            status="ALPHA"
+            title="Echoa – Cinematic Music Experience"
+            desc="A design-first web application that reimagines the music listening experience. By integrating Spotify, Gemini AI, and Pexels, Echoa acts as a living canvas, analyzing the emotional heartbeat of your current track—lyrics, tempo, and mood—to instantly render a synchronized, cinematic video atmosphere. It bridges the gap between sound and sight, turning a static playlist into an immersive visual void."
+            tech="React (Vite), Spotify API, Google Gemini AI, Pexels API, Framer Motion."
+            linkDemo="https://echoa-v1.pages.dev"
+            linkCode="https://github.com/armycodes/Echoa_V1.git"
+          />
+
           <ProjectCard 
             pid="1024"
             name="DataPulse_System"
-            status="RUNNING"
+            status="STABLE"
             title="DataPulse: Real-Time Monitoring"
             desc="A scalable, event-driven backend system to detect schema drift and data anomalies."
             tech="Java, Python, FastAPI, Redis, Celery, PostgreSQL"
-            linkCode="#"
+            linkDemo="https://data-pulse-eight.vercel.app/"
+            linkCode="https://github.com/armycodes/DataPulse.git"
+            
           />
 
           <ProjectCard 
@@ -115,7 +130,6 @@ function App() {
 
       </main>
 
-      {/* COMMAND BAR ADDED HERE */}
       <CommandBar />
 
     </div>
