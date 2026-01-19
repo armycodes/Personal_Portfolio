@@ -73,7 +73,7 @@ const TerminalHero = () => {
           justifyContent: 'center' 
         }}>
           <a href="#projects" className="terminal-btn hero-btn">[ View_Projects ]</a>
-          <a href="/assets/Siri_Mahalaxmi_Resume.pdf" target="_blank" className="terminal-btn outline hero-btn">[ Download_Resume ]</a>
+          <a href="/assets/SDE_RESUME.pdf" target="_blank" className="terminal-btn outline hero-btn">[ Download_Resume ]</a>
         </div>
       </div>
 
