@@ -1,16 +1,38 @@
-# React + Vite
+# 💻 Terminal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A unique, developer-centric portfolio website designed to mimic the **Windows Command Prompt (CMD)** experience. Built with **React** and **GSAP** for high-performance animations.
 
-Currently, two official plugins are available:
+![Portfolio Preview](public/favicon.svg) 
+*(Note: Add a screenshot of your website here later)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+🔗 **[Click Here to View Live Site](https://personal-portfolio-3vb.pages.dev/)**
+*(Replace this link with your actual Cloudflare link)*
 
-## React Compiler
+## ✨ Features
+* **Strict Monochrome Theme:** Pure Black & White design inspired by old-school terminals.
+* **Interactive Command Bar:** A working CLI (Command Line Interface) to navigate sections (try typing `help`).
+* **Live DSA Stats:** An interactive terminal section where users can execute commands to see my coding stats.
+* **Typing Animations:** Realistic typing effects using GSAP.
+* **Responsive:** Works perfectly on Desktop and Mobile (includes mobile-friendly keyboard support).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+* **Frontend:** React.js (Vite)
+* **Styling:** CSS3 (Custom Terminal Theme)
+* **Animations:** GSAP (GreenSock Animation Platform)
+* **Deployment:** Cloudflare Pages
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 📂 Project Highlights
+* **Echoa:** Mood-based music visualizer using Spotify & Pexels APIs.
+* **Justice Genie:** AI Legal Assistant chatbot.
+* **DataPulse:** Real-time backend monitoring system.
+
+## 📫 Contact
+* **Email:** sirimahalaxmivemula@gmail.com
+* **GitHub:** [armycodes](https://github.com/armycodes)
+* **LinkedIn:** [Siri Mahalaxmi](https://linkedin.com)
+
+---
+*Pro Tip: Type `help` in the website's command bar to navigate like a pro!* ⌨️
