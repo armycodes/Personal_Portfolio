@@ -2,9 +2,6 @@
 
 A unique, developer-centric portfolio website designed to mimic the **Windows Command Prompt (CMD)** experience. Built with **React** and **GSAP** for high-performance animations.
 
-![Portfolio Preview](public/favicon.svg) 
-*(Note: Add a screenshot of your website here later)*
-
 ## 🚀 Live Demo
 🔗 **[Click Here to View Live Site](https://personal-portfolio-3vb.pages.dev/)**
 *(Replace this link with your actual Cloudflare link)*
