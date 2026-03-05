@@ -109,7 +109,7 @@ const Contact = () => {
         {/* LinkedIn */}
         <div className="ping-line" style={{ marginBottom: '12px' }}>
           <span style={{ color: '#888', display: 'inline-block', width: '100px' }}>LinkedIn:</span> 
-          <a href="https://linkedin.com/in/sirimahalaxmivemula" target="_blank" rel="noreferrer" className="hover-link" style={{ color: '#fff', textDecoration: 'underline', textDecorationColor: '#666' }}>
+          <a href="https://www.linkedin.com/in/vemula-siri-mahalaxmi-b4b624319/" target="_blank" rel="noreferrer" className="hover-link" style={{ color: '#fff', textDecoration: 'underline', textDecorationColor: '#666' }}>
             Vemula Siri Mahalaxmi
           </a>
         </div>
